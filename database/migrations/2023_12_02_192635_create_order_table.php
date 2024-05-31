@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->foreignId("supplier_id")->constraiend("supplier");
+            $table->decimal("total", 8, 2);
+            // $table->foreignId("supplier_id")->constraiend("supplier");
             $table->foreignId("product_id")->constraiend("products");
             $table->timestamps();
         });
@@ -24,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('order_tablee');
+        Schema::dropIfExists('orders');
     }
 };

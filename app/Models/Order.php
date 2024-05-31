@@ -8,10 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Order extends Model
 {
     use HasFactory;
-    
-    protected $fillable = ["supplier_id" , "product_id"];
 
-    public function prodcut(){
-        return $this->blongsTo(Product::class, "product_id" , "id");
+    protected $fillable = ["product_id", "total"];
+
+    public function product()
+    {
+        return $this->blongsTo(Product::class, "product_id", "id");
     }
 }
